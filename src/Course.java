@@ -1,9 +1,15 @@
+import static java.util.Objects.requireNonNull;
+
 public class Course {
-    String courseName;
-    float duration;
+    private final String name;
+    private final float duration;
 
     public Course(String name, float duration){
-        courseName = name;
+        this.name = requireNonNull(name);
         this.duration = duration;
+    }
+
+    public float getDuration(){
+        return this.duration;
     }
 }
