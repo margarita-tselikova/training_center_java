@@ -1,34 +1,41 @@
+
+import static java.util.Objects.requireNonNull;
+
 public class Student {
 
-    public static int workingHourStart = 10;
-    public static int workingHourEnd = 18;
+    public static final int WORKING_HOUR_START = 10;
+    public static final int WORKING_HOUR_END = 18;
 
-    String name;
-    String surname;
-    Program trainingProgram;
-    String programStartDate;
+    private String name;
+    private String surname;
+    private Program trainingProgram;
+    private String programStartDate;
 
-    public Student(String name, String surname, Program trainingProgram, String startDate){
-        this.name = name;
-        this.surname = surname;
-        this.trainingProgram = trainingProgram;
-        this.programStartDate = startDate;
+    public Student(String name, String surname, Program trainingProgram, String startDate) {
+        this.name = requireNonNull(name);
+        this.surname = requireNonNull(surname);
+        this.trainingProgram = requireNonNull(trainingProgram);
+        this.programStartDate = requireNonNull(startDate);
     }
 
-    public String getFullName(){
+    public String getFullName() {
         return name + " " + surname;
     }
 
-    public static int getWorkingHoursPerDay(){
-        return workingHourEnd - workingHourStart;
+    public static int getWorkingHoursPerDay() {
+        return WORKING_HOUR_END - WORKING_HOUR_START;
     }
 
-    public static String getWorkingHours(){
-        return "from " + workingHourStart + " to " + workingHourEnd;
+    public static String getWorkingHoursAsString() {
+        return "from " + WORKING_HOUR_START + " to " + WORKING_HOUR_END;
     }
 
-    public String getStartDate(){
+    public String getProgramStartDate() {
         return this.programStartDate;
+    }
+
+    public Program getTrainingProgram() {
+        return this.trainingProgram;
     }
 
 }

@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import static java.util.Objects.requireNonNull;
 
 public class Program {
 
-    String name;
-    ArrayList<Course> courses = new ArrayList<>();
+    private String name;
+    private ArrayList<Course> courses = new ArrayList<>();
 
     public Program(String name, Course ... courses){
-        this.name = name;
+        this.name = requireNonNull(name);
         if (courses.length > 0){
             Collections.addAll(this.courses, courses);
         }
@@ -16,7 +17,7 @@ public class Program {
     public float getDurationInHours(){
         float programDuration = 0;
         for (Course course: courses){
-            programDuration += course.duration;
+            programDuration += course.getDuration();
         }
         return programDuration;
     }
@@ -24,5 +25,9 @@ public class Program {
     public float getDurationInDaysAndHours(float workingHoursPerDay){
         float dur = this.getDurationInHours();
         return dur/workingHoursPerDay;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

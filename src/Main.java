@@ -19,14 +19,9 @@ public class Main {
         Student sidorov = new Student("Ivan", "Sidorov", aqe, "1 June 2020 - Monday");
         List<Student> students = Arrays.asList(ivanov, sidorov);
 
-        boolean shortReport = true;
-        for (String par: args) {
-            if (!par.equals("0")) {
-                StudentService.fullReport(students);
-                shortReport = false;
-            }
-        }
-        if (shortReport) {
+        if (args.length > 0 && !args[0].equals("0")) {
+            StudentService.fullReport(students);
+        } else {
             StudentService.shortReport(students);
         }
     }
