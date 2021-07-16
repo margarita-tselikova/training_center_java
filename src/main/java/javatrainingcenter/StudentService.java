@@ -1,3 +1,4 @@
+package javatrainingcenter;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.ZoneId;

@@ -1,3 +1,5 @@
+package javatrainingcenter;
+
 import static java.util.Objects.requireNonNull;
 
 public class Course {
